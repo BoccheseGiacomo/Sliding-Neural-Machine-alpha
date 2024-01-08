@@ -5,6 +5,7 @@
 The Sliding Neural Machine (SNM) is an exploratory extension of the Convolutional Turing Machine (CTM), conceived with the goal of refining adaptive learning systems in computational models. Diverging from the CTM's approach of updating the entire state space, the SNM innovates by selectively updating only the region beneath its kernel. This targeted approach brings about a shift from the CTM's O(n) computational complexity (depending on the state space dimension n, number of cells in the state space grid) to a more efficient O(1) paradigm in the SNM, representing a significant stride in computational efficiency.
 
 This O(1) dependence on the state space is crucial in reachingn (finite memory bounded) Turing Completeness and Universal Computation abilities, since we theoretically need infinite memory tape to model any possible function and algorithm with a turing machine. The O(1) dependence on "tape length" (that is the state space), assures that we can scale the SS dimension without affecting simulation speed (if enough RAM is given).
+The model also embeds "Adaptive Computation Time", that is a fundamental feature for allowing Turing Completeness since it allows for looping operations.
 
 Central to this efficiency is the SNM's use of a neural network-based transformation for its kernel operations, as opposed to the convolution operations used in the CTM. This kernel network, which is trainable, drives the kernel and updates the region beneath it, adding a layer of adaptability and learning capability to the SNM's processing. Its mobile kernel, which autonomously moves in the state space, is driven by its internal processing. This mobility allows the SNM to execute computations and updates in specific zones of the state space as needed, enhancing the system's operational focus and efficiency. While inheriting the foundational features of the CTM, the current implementation of the SNM also includes the potential for first-order meta-learning emergence.
 
@@ -17,6 +18,10 @@ The project is in the early stages of development, and while it shows promise, i
 
 
 ## Design and Operation
+
+### State space, input, ouptut and reward encoding:
+- These features are identical to the CTM, please refer to it to understand them. [link].
+  
 ### Kernel Design
 - The SNM features a shallow neural network kernel.
 - It processes a 3x3 (changeable) input area from the state space, with a hidden layer of 128 neurons, outputting a 3x3 grid.
@@ -26,7 +31,12 @@ The project is in the early stages of development, and while it shows promise, i
 - Some of these activations determine the probabilities of moving: up, down, left, right, or stay. Then they are sampled and the kernel reaches a new position, and so on.
 
 ### State Space Update
-- In each iteration, only the 3x3 area under the kernel is updated, reflecting the kernel's output.
+- In each iteration, only the 3x3 area under the kernel is updated, reflecting the kernel's output
+
+### Flow control and halting: Adaptive Computation Time
+- The systems implements a halting cell in the state space. This cell adds the feature of Adaptive Computation Time.
+- Adaptive computation time gives a flow control ability to the model, allowing for performing more or less steps depending on the task complexity.
+- This allows for (bounded memory) Turing Completeness, since it allows to perform loop operations that are foundamental for modeling recursive processes, without them it's impossible to reach TC.
 
 ### Iteration vs. Inference Steps
 - **Iteration Step**: Involves the kernel processing its current 3x3 area, updating the state space, and then moving.
