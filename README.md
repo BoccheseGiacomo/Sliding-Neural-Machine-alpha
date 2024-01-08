@@ -1,13 +1,12 @@
 # Sliding-Neural-Machine-alpha
 
-# README for Sliding Neural Machine (SNM) Project
 
 ## Abstract
 The Sliding Neural Machine (SNM) is an exploratory extension of the Convolutional Turing Machine (CTM), conceived with the goal of refining adaptive learning systems in computational models. Diverging from the CTM's approach of updating the entire state space, the SNM innovates by selectively updating only the region beneath its kernel. This targeted approach brings about a shift from the CTM's O(n) computational complexity (depending on the state space dimension n, number of cells in the state space grid) to a more efficient O(1) paradigm in the SNM, representing a significant stride in computational efficiency.
 
 This O(1) dependence on the state space is crucial in reachingn (finite memory bounded) Turing Completeness and Universal Computation abilities, since we theoretically need infinite memory tape to model any possible function and algorithm with a turing machine. The O(1) dependence on "tape length" (that is the state space), assures that we can scale the SS dimension without affecting simulation speed (if enough RAM is given).
 
-Central to the SNM's design is its mobile kernel, which autonomously traverses the state space, driven by its internal processing. This mobility allows the SNM to execute computations and updates in specific zones as needed, enhancing the system's operational focus and efficiency. While inheriting the foundational features of the CTM, the current implementation of the SNM also includes the potential for first-order meta-learning emergence.
+Central to this efficiency is the SNM's use of a neural network-based transformation for its kernel operations, as opposed to the convolution operations used in the CTM. This kernel network, which is trainable, drives the kernel and updates the region beneath it, adding a layer of adaptability and learning capability to the SNM's processing. Its mobile kernel, which autonomously moves in the state space, is driven by its internal processing. This mobility allows the SNM to execute computations and updates in specific zones of the state space as needed, enhancing the system's operational focus and efficiency. While inheriting the foundational features of the CTM, the current implementation of the SNM also includes the potential for first-order meta-learning emergence.
 
 The SNM's capability for self-reprogramming its kernel, an ambitious feature aimed at achieving full meta-learning (different from first-order meta learning), is yet to be included in the current version. This feature, while yet ideated how, is yet to be coded and integrated into the model. It promises to enable the SNM to adapt its kernel autonomously, furthering its learning and evolutionary capabilities.
 
