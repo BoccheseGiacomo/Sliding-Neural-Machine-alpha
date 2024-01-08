@@ -57,7 +57,3 @@ If you utilize the SNM in your research or projects, please acknowledge this wor
 
 ## Contact
 For queries, suggestions, or collaborations, feel free to reach out. Your feedback and insights are valuable to the continuous improvement and evolution of the SNM project.
-
----
-
-This README aims to provide a comprehensive yet humble overview of the SNM project, reflecting its experimental status and potential for growth.
