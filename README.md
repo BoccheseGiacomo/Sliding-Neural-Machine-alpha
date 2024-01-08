@@ -45,7 +45,7 @@ If you utilize the SNM in your research or projects, please acknowledge this wor
 ```bibtex
 @misc{snm2024,
   author = {Giacomo Bocchese},
-  title = {Sliding Neural Machine: An Experimental Approach to Neural Computing},
+  title = {Sliding Neural Machine: An efficient emergent model architecture},
   year = {2024},
   publisher = {GitHub},
   journal = {GitHub repository},
