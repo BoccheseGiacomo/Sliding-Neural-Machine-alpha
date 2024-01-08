@@ -13,16 +13,17 @@ The SNM's capability for self-reprogramming its kernel, an ambitious feature aim
 Currently, the SNM can be trained using a combination of Genetic Algorithms and advanced Reinforcement Learning techniques like policy gradient and Proximal Policy Optimization (PPO). This hybrid training approach is intended to optimize the model's learning effectiveness and adaptability. Once meta learning occours, learning would speed up dramaticaly and external optimizers can be removed (maybe kept only for stability reasons). This net will have continual learning and ability to self-improve at all computational levels (assuming enough state space memory).
 
 It's important to emphasize that the SNM project, at this juncture, is highly experimental. *Some of the theoretical claims present in this description are not formally proved yet, many of them come from a kind of "rigorous deduction" and some intuition based on known concepts in deep learning and emergent systems*. The future steps outlined are exploratory in nature and aimed at gradually uncovering the potential and limitations of the model. As the project progresses, these steps will be critical in transitioning from heuristical concepts to tangible results and insights.
+The project is in the early stages of development, and while it shows promise, it should be approached with an understanding of its experimental nature.
 
 
 ## Design and Operation
 ### Kernel Design
 - The SNM features a shallow neural network kernel.
-- It processes a 3x3 input area from the state space, with a hidden layer of 128 neurons, outputting a 3x3 grid.
+- It processes a 3x3 (changeable) input area from the state space, with a hidden layer of 128 neurons, outputting a 3x3 grid.
 
 ### Kernel Movement
 - The movement of the kernel is determined by the network's output activations.
-- These activations dictate the direction of movement: up, down, left, right, or stay.
+- Some of these activations determine the probabilities of moving: up, down, left, right, or stay. Then they are sampled and the kernel reaches a new position, and so on.
 
 ### State Space Update
 - In each iteration, only the 3x3 area under the kernel is updated, reflecting the kernel's output.
@@ -32,18 +33,8 @@ It's important to emphasize that the SNM project, at this juncture, is highly ex
 - **Inference Step**: A complete cycle starting from the kernel's initial position to the point where the halting state exceeds a threshold.
 
 ## Computational Complexity
-- The operation of the SNM is \( O(1) \) in relation to the state space size, with each iteration step processing a fixed-size region.
-- The duration of a complete inference step is not constant (\( O(1) \)) and can vary.
-
-## Current Status and Limitations
-As an alpha version project, the SNM is primarily an exploratory and experimental tool. Its development is grounded in heuristic reasoning and empirical methods, with several aspects yet to be rigorously tested or formally proven. The project is in the early stages of development, and while it shows promise, it should be approached with an understanding of its experimental nature.
-
-### Limitations and Future Work
-- **Experimental Nature**: Many features and claims about the SNM are based on intuition and are not yet empirically validated. This project is a conceptual exploration and should be viewed as a starting point for further research and development.
-- **Unproven Claims**: Some of the theoretical claims and functionalities are based on hypotheses and require further investigation and validation.
-- **Incomplete Functionalities**: As an alpha version, not all intended functionalities of the SNM are implemented. Future versions aim to expand on these capabilities.
-- **Scalability and Efficiency**: While the SNM is designed to be scalable and efficient, these aspects need rigorous testing, especially in different application scenarios.
-- **Application in Complex Systems**: The model's potential in simulating complex dynamical systems and pattern recognition tasks is a key area for future exploration.
+- The operation of the SNM is O(1) in relation to the state space size, with each iteration step processing a fixed-size region.
+- The duration of a complete inference step is not a constant O(1) and can vary, depending on the task complexity since it self adapts.
 
 ## Contributing
 Contributions to the SNM project are welcome. Interested researchers, students, and enthusiasts in the fields of neural computing, dynamical systems, and machine learning are encouraged to collaborate, test, and expand on the project. Whether it's refining the existing model, testing its hypotheses, or implementing new features, your input can help advance this exploratory tool.
